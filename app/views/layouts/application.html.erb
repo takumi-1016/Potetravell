@@ -34,19 +34,9 @@
                 <li><a href="/rooms/new">ルーム登録</a></li>
                 <li><a href="/reservations">予約済みルーム一覧</a></li>
                 <li><a href="/rooms/posts">登録済みルーム一覧</a></li>
-                <li><a href="/users/account">設定</a></li>
-                <li><a rel="nofollow" data-method="delete" href="/users/sign_out">ログアウト</a></li>
-              <% else %>
-                <li><%= link_to 'サインアップ', new_user_registration_path, class: 'btn btn-primary' %></li>
-                <li><%= link_to 'ログイン', new_user_session_path, class: 'btn btn-secondary'%></li>
-              <% end %>
-            </ul>
-            <ul class="header-nav-menu">     
-              <% if user_signed_in?%>           
+                <li><%= link_to '設定',user_url(current_user.id) %></li>
                 <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-                <li></li>
-                <li></li>
+                <h1><%=current_user.name%></h1>
               <% else %>
                 <li><%= link_to 'サインアップ', new_user_registration_path, class: 'btn btn-primary' %></li>
                 <li><%= link_to 'ログイン', new_user_session_path, class: 'btn btn-secondary'%></li>
